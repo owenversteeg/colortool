@@ -11,6 +11,11 @@ function increaseValue(amt) {
   getColorOrWavelength();
 }
 
+function shortenedHex(hex) {
+  var x = hex.split(''); 
+  return x[0]+x[1]+x[3]+x[5];
+}
+
 function getColorOrWavelength() {
   var value = document.getElementById('inputBox').value;
   var color;
@@ -31,8 +36,10 @@ function getColorOrWavelength() {
       color = value;
     }
   
-    for (var i=350*150; i<780*150; i++) {
-      if (getColorFromWaveLength(i/150) == color) nanometers = i/150;
+    var step = 10;
+    
+    for (var i=350*step; i<780*step; i++) {
+      if (shortenedHex(getColorFromWaveLength(i/step)) == shortenedHex(color)) nanometers = i/step;
     }
   }
   document.getElementById('outputColor').style.backgroundColor = color;
