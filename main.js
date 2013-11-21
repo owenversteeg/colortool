@@ -16,6 +16,11 @@ function shortenedHex(hex) {
   return x[0]+x[1]+x[3]+x[5];
 }
 
+function enlargedHex(hex) {
+  var x = hex.split('');
+  return x[0]+x[1]+x[1]+x[2]+x[2]+x[3]+x[3];
+}
+
 function getColorOrWavelength() {
   var value = document.getElementById('inputBox').value;
   var color;
@@ -33,6 +38,7 @@ function getColorOrWavelength() {
       color = colorNameToHex(value);
     } else if (value.indexOf('#') != -1) {
       //we have a hex color, which is good
+      if (value.length == 4) value = enlargedHex(value);
       color = value;
     }
   
