@@ -1,10 +1,12 @@
 function getColorOrWavelength() {
   var value = document.getElementById('inputBox').value;
   var color;
+  var nanometers = 450;
   
   if (parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
-    alert(getColorFromWaveLength(value));
+    nanometers = value;
+    color = getColorFromWaveLength(value);
   }
   else {
     //we have a color
@@ -16,7 +18,8 @@ function getColorOrWavelength() {
       color = hexToRgb(value);
     }
   }
-  alert(color);
+  document.getElementById('outputColor').style.backgroundColor = getColorFromWaveLength(value);
+  document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color;
 }
 
 function hexToRgb(hex) {
