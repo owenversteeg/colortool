@@ -30,9 +30,9 @@ function getColorOrWavelength() {
       //we have a hex color, which is good
       color = value;
     }
-    
-    for (var i=350*5; i<780*5; i++) {
-      if (getColorFromWaveLength(i/5) == color) nanometers = i/5;
+  
+    for (var i=350*150; i<780*150; i++) {
+      if (getColorFromWaveLength(i/150) == color) nanometers = i/150;
     }
   }
   document.getElementById('outputColor').style.backgroundColor = color;
