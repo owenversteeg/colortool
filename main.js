@@ -23,15 +23,17 @@ function enlargedHex(hex) {
 
 function getColorOrWavelength() {
   var value = document.getElementById('inputBox').value;
-  var color;
+  var color, direction, error;
   var nanometers = 0;
   
   if (parseFloat(value) && parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
     nanometers = value;
     color = getColorFromWaveLength(value);
+    direction = "toColor"
   }
   else {
+    direction = "toWavelength"
     //we have a color
     if (colorNameToHex(value)) {
       //our color is a named color e.x. teal
@@ -49,9 +51,16 @@ function getColorOrWavelength() {
     }
   }
   document.getElementById('outputColor').style.backgroundColor = color;
-  if (nanometers != 0) { document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color; }
-  else {
-    document.getElementById('outputText').innerHTML = "Sorry! Your chosen color only exists as a mixture of two wavelengths of light! Color:"+color; }
+   
+  if (nanometers != 0) { 
+    document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color;
+    error = "none";
+  } else {
+    document.getElementById('outputText').innerHTML = "Sorry! Your chosen color only exists as a mixture of multiple wavelengths of light! Color:"+color; 
+    error = "colorNotOneWavelength";
+  }
+  
+  mixpanel.track('getColorOrWavelength', {'color':color, 'wavelength':nanometers, 'direction': direction, 'error': error})
 }
 
 function hexToRgb(hex) {
