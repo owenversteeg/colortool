@@ -4,7 +4,7 @@ function getColorOrWavelength() {
   
   if (parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
-    alert(getColorFromWavelength(value));
+    alert(getColorFromWaveLength(value));
   }
   else {
     //we have a color
