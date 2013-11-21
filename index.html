@@ -13,8 +13,17 @@
 		<script type="text/javascript" src="colorToHex.js"></script>
 	</head>
 	<body>
-		<em>Or</em> color: <input type="text" id="inputBox" value="red"></input>
+		<style type="text/css">
+			#output {
+				height: 100px;
+				width: 100px;
+			}
+		</style>
+		<h3>Using this tool, you can convert from color to wavelength and vice versa.</h3>
+		Enter wavelength <em>Or</em> color: <input type="text" id="inputBox" value="red"></input>
 		<br>
 		<button onclick="getColorOrWavelength()">Get color or wavelength</button>
+		<br>
+		Output: <div id="output"></div>
 	</body>
 </html>
