@@ -31,7 +31,6 @@ function getColorOrWavelength() {
       //we have a hex color, which is good
       color = value;
     }
-    color = "#" + color.r + ",color.g + color.b;
     for (var i=350; i<780; i++) {
       if (getColorFromWaveLength(i) == color) nanometers = i;
     }
