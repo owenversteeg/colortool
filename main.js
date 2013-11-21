@@ -1,3 +1,13 @@
+Mousetrap.bind('up', function() { increaseValue(5); });
+Mousetrap.bind('down', function() { increaseValue(-5); });
+
+function increaseValue(amt) {
+  var value = document.getElementById('inputBox').value;
+  if (parseFloat(value).toString().length == value.toString().length) {
+    document.getElementById('inputBox').value = parseFloat(value) + amt;
+  }
+}
+
 function getColorOrWavelength() {
   var value = document.getElementById('inputBox').value;
   var color;
