@@ -8,7 +8,7 @@ function getColorOrWavelength() {
   }
   else {
     //we have a color
-    if (colourNameToHex(value)) {
+    if (colorNameToHex(value)) {
       color = colorNameToHex(value);
       color = hexToRgb(color);
     } else if (value.indexOf('#') != -1) {
