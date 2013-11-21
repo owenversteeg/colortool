@@ -1,3 +1,5 @@
+document.getElementById('inputBox').onkeyup = getColorOrWavelength;
+
 Mousetrap.bind('up', function() { increaseValue(5); });
 Mousetrap.bind('down', function() { increaseValue(-5); });
 
@@ -6,12 +8,14 @@ function increaseValue(amt) {
   if (parseFloat(value).toString().length == value.toString().length) {
     document.getElementById('inputBox').value = parseFloat(value) + amt;
   }
+  getColorOrWavelength();
 }
 
 function getColorOrWavelength() {
   var value = document.getElementById('inputBox').value;
   var color;
-  var nanometers = 450;
+  var nanometers = 350;
+  //top = 780
   
   if (parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
