@@ -10,7 +10,6 @@
 
 		<script type="text/javascript" src="mousetrap.js"></script>
 		<script type="text/javascript" src="wavelengthToRGB.js"></script>
-		<script type="text/javascript" src="main.js"></script>
 		<script type="text/javascript" src="colorToHex.js"></script>
 	</head>
 	<body>
@@ -21,11 +20,12 @@
 			}
 		</style>
 		<h3>Using this tool, you can convert from color to wavelength and vice versa.</h3>
-		Enter wavelength <em>Or</em> color: <input type="text" class="mousetrap" id="inputBox" value="505"></input>
+		Enter wavelength <b>or</b> color: <input type="text" class="mousetrap" id="inputBox" value="505"></input>
 		<br>
 		<button onclick="getColorOrWavelength()">Get color or wavelength</button>
 		<br>
 		<h3 id="outputText"></h3>
 		<div id="outputColor"></div>
+		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
