@@ -15,7 +15,8 @@ function getColorOrWavelength() {
       //we have a hex color, which needs to be an RGB color
       color = hexToRgb(value);
     }
-    alert(color);
+  }
+  alert(color);
 }
 
 function hexToRgb(hex) {
