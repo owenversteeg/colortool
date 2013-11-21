@@ -14,8 +14,7 @@ function increaseValue(amt) {
 function getColorOrWavelength() {
   var value = document.getElementById('inputBox').value;
   var color;
-  var nanometers = 350;
-  //top = 780
+  var nanometers = 0;
   
   if (parseFloat(value) && parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
@@ -31,8 +30,9 @@ function getColorOrWavelength() {
       //we have a hex color, which is good
       color = value;
     }
-    for (var i=350; i<780; i++) {
-      if (getColorFromWaveLength(i) == color) nanometers = i;
+    
+    for (var i=350*5; i<780*5; i++) {
+      if (getColorFromWaveLength(i/5) == color) nanometers = i/5;
     }
   }
   document.getElementById('outputColor').style.backgroundColor = color;
