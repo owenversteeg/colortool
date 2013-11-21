@@ -17,7 +17,7 @@ function getColorOrWavelength() {
   var nanometers = 350;
   //top = 780
   
-  if (parseFloat(value).toString().length && parseFloat(value).toString().length == value.toString().length) {
+  if (parseFloat(value) && parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
     nanometers = value;
     color = getColorFromWaveLength(value);
