@@ -8,7 +8,7 @@ function increaseValue(amt) {
   if (parseFloat(value).toString().length == value.toString().length) {
     document.getElementById('inputBox').value = parseFloat(value) + amt;
   }
-  getColorOrWavelength();
+  getColorOrWavelength(true);
 }
 
 function shortenedHex(hex) {
@@ -21,7 +21,7 @@ function enlargedHex(hex) {
   return x[0]+x[1]+x[1]+x[2]+x[2]+x[3]+x[3];
 }
 
-function getColorOrWavelength() {
+function getColorOrWavelength(doNotTrack) {
   var value = document.getElementById('inputBox').value;
   var color, direction, error;
   var nanometers = 0;
@@ -60,7 +60,9 @@ function getColorOrWavelength() {
     error = "colorNotOneWavelength";
   }
   
-  mixpanel.track('getColorOrWavelength', {'color':color, 'wavelength':nanometers, 'direction': direction, 'error': error})
+  if (!doNotTrack) {
+    mixpanel.track('getColorOrWavelength', {'color':color, 'wavelength':nanometers, 'direction': direction, 'error': error})
+  }
 }
 
 function hexToRgb(hex) {
