@@ -25,11 +25,15 @@ function getColorOrWavelength() {
   else {
     //we have a color
     if (colorNameToHex(value)) {
+      //our color is a named color e.x. teal
       color = colorNameToHex(value);
-      color = hexToRgb(color);
     } else if (value.indexOf('#') != -1) {
-      //we have a hex color, which needs to be an RGB color
-      color = hexToRgb(value);
+      //we have a hex color, which is good
+      color = value;
+    }
+    color = "#" + color.r + ",color.g + color.b;
+    for (var i=350; i<780; i++) {
+      if (getColorFromWaveLength(i) == color) nanometers = i;
     }
   }
   document.getElementById('outputColor').style.backgroundColor = getColorFromWaveLength(value);
