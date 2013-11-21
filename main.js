@@ -1,4 +1,4 @@
-document.getElementById('inputBox').onkeyup = getColorOrWavelength;
+Mousetrap.bind('enter', function() { getColorOrWavelength(); });
 
 Mousetrap.bind('up', function() { increaseValue(5); });
 Mousetrap.bind('down', function() { increaseValue(-5); });
