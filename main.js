@@ -56,7 +56,7 @@ function getColorOrWavelength(doNotTrack) {
     document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color;
     error = "none";
   } else {
-    document.getElementById('outputText').innerHTML = "Sorry! Your chosen color only exists as a mixture of multiple wavelengths of light! Color:"+color; 
+    document.getElementById('outputText').innerHTML = "Sorry! Your chosen color does not exist as one wavelength of light! Color:"+color; 
     error = "colorNotOneWavelength";
   }
   
