@@ -49,7 +49,9 @@ function getColorOrWavelength() {
     }
   }
   document.getElementById('outputColor').style.backgroundColor = color;
-  document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color;
+  if (nanometers != 0) { document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color; }
+  else {
+    document.getElementById('outputText').innerHTML = "Sorry! Your chosen color only exists as a mixture of two wavelengths of light! Color:"+color; }
 }
 
 function hexToRgb(hex) {
