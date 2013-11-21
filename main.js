@@ -17,7 +17,7 @@ function getColorOrWavelength() {
   var nanometers = 350;
   //top = 780
   
-  if (parseFloat(value).toString().length == value.toString().length) {
+  if (parseFloat(value).toString().length && parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
     nanometers = value;
     color = getColorFromWaveLength(value);
@@ -35,7 +35,7 @@ function getColorOrWavelength() {
       if (getColorFromWaveLength(i) == color) nanometers = i;
     }
   }
-  document.getElementById('outputColor').style.backgroundColor = getColorFromWaveLength(value);
+  document.getElementById('outputColor').style.backgroundColor = color;
   document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color;
 }
 
