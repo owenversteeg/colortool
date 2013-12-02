@@ -30,7 +30,8 @@ function getColorOrWavelength(doNotTrack) {
     //we have a value in nanometers
     nanometers = value;
     color = getColorFromWaveLength(nanometers);
-    direction = "fromNanometers"
+    frequency = (299792458*1000000000)/nanometers;
+    direction = "fromNanometers";
   }
   else if ((value.indexOf('e') != -1 || value.indexOf('^') != -1) && value.indexOf('14') != -1 && eval(value)>1e14 && eval(value)<1e15) {
     //I just evalled unsanitized user input. twice. dealwithit.gif
@@ -58,11 +59,15 @@ function getColorOrWavelength(doNotTrack) {
     for (var i=350*step; i<780*step; i++) {
       if (shortenedHex(getColorFromWaveLength(i/step)) == shortenedHex(color)) nanometers = i/step;
     }
+    
+    if (nanometers != 0) {
+    	frequency = (299792458*1000000000)/nanometers;
+    }
   }
   document.getElementById('outputColor').style.backgroundColor = color;
    
   if (nanometers != 0) { 
-    document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color;
+    document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color+" = "+Math.round(1000*frequency/1e14)/1000 + "*10^14 sec^-1";
     error = "none";
   } else {
     document.getElementById('outputText').innerHTML = "Sorry! Your chosen color does not exist as one wavelength of light! Color:"+color; 
