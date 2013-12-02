@@ -67,7 +67,7 @@ function getColorOrWavelength(doNotTrack) {
   document.getElementById('outputColor').style.backgroundColor = color;
    
   if (nanometers != 0) { 
-    document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color+" = "+Math.round(1000*frequency/1e14)/1000 + "*10^14 sec^-1";
+    document.getElementById('outputText').innerHTML = nanometers + " nanometers = "+color+" = "+Math.round(1000*frequency/1e14)/1000 + "e14 inverse seconds";
     error = "none";
   } else {
     document.getElementById('outputText').innerHTML = "Sorry! Your chosen color does not exist as one wavelength of light! Color:"+color; 
