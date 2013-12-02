@@ -34,7 +34,7 @@ function getColorOrWavelength(doNotTrack) {
     energy = 6.62606957e-34 * frequency;
     direction = "fromNanometers";
   }
-  else if (value.indexOf('e') != -1 && (value.indexOf('14') != -1 || value.indexOf('-19') != -1 && )) {
+  else if (value.indexOf('e') != -1 && (value.indexOf('14') != -1 || value.indexOf('-19') != -1)) {
     //I just evalled unsanitized user input. twice. dealwithit.gif
     //we have a number in sci-notation
     if (eval(value)>1e14 && eval(value)<1e15) {
