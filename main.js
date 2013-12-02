@@ -26,7 +26,7 @@ function getColorOrWavelength(doNotTrack) {
   var color, direction, error, frequency, energy;
   var nanometers = 0;
   
-  if (parseFloat(value) && parseFloat(value).toString().length == value.toString().length) {
+  if (value.indexOf('e') == -1 && parseFloat(value) && parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
     nanometers = value;
     color = getColorFromWaveLength(nanometers);
