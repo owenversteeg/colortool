@@ -38,7 +38,7 @@ function getColorOrWavelength(doNotTrack) {
     //frequency = speed of light/wavelength
     //wavelength = speed of light/frequency
     var nanometers = (299792458*1000000000)/eval(value); //speed of light times a big number (to convert from m to nm)
-    color = getColorFromWavelength(nanometers);
+    color = getColorFromWaveLength(nanometers);
     direction = "fromFrequency";
   }
   else {
