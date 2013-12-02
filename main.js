@@ -29,11 +29,20 @@ function getColorOrWavelength(doNotTrack) {
   if (parseFloat(value) && parseFloat(value).toString().length == value.toString().length) {
     //we have a value in nanometers
     nanometers = value;
-    color = getColorFromWaveLength(value);
-    direction = "toColor"
+    color = getColorFromWaveLength(nanometers);
+    direction = "fromNanometers"
+  }
+  else if ((value.indexOf('e') != -1 || value.indexOf('^') != -1) && value.indexOf('14') != -1 && eval(value)>1e14 && eval(value)<1e15) {
+    //I just evalled unsanitized user input. twice. dealwithit.gif
+    //we have a frequency
+    //frequency = speed of light/wavelength
+    //wavelength = speed of light/frequency
+    var nanometers = (299792458*1000000000)/eval(value); //speed of light times a big number (to convert from m to nm)
+    color = getColorFromWavelength(nanometers);
+    direction = "fromFrequency";
   }
   else {
-    direction = "toWavelength"
+    direction = "fromColor"
     //we have a color
     if (colorNameToHex(value)) {
       //our color is a named color e.x. teal
